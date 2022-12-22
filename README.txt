@@ -7,3 +7,7 @@ The comment section of youtube can be hard to manually de-cypher who guessed cor
 * Once the comment is parsed I extract the data to a csv so I can filter the data based on the actual completion time. 
 
 60,000+ video comments can now be checked and winner found in a matter of minutes. 
+
+
+***
+Problems with this approach surround the formatting of the actual guess. It's difficult to account for edge case formatting that doesn't follow our assumed formatting. 
