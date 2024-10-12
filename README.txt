@@ -12,8 +12,7 @@ The comment section of youtube can be hard to manually de-cypher who guessed cor
 ***
 Problems with this approach surround the formatting of the actual guess. It's difficult to account for edge case formatting that doesn't follow our assumed formatting. 
 
-______________________________________________________________________________________________________________________________________________________________________
-
+_______________________________________________________________________________________
 Goals for improving project.
 
 * Rebuild the extraction function. Possibly utilize librarys like nltk or spaCy to analyze the text comments.
