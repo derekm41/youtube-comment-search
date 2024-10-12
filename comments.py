@@ -48,8 +48,7 @@ def getHoursMinSec(commentText):
     #keywords: hours, hour, hrs, minutes, min, mins, seconds, second, sec
     #prepare commentText
         
-    #Check to see if the text has any number words like 'twelve' using word2number library.
-    #We will receive an error if there are no number words and except statement will fire
+    #Clean our comment text for parsing.
     commentText = commentText.lower()
     commentText = parseNumberWords(commentText)
 
@@ -90,7 +89,8 @@ def getHoursMinSec(commentText):
     if secIndex >= 0:
         seconds = getDigits(commentText[:secIndex])
 
-    #if there misspelling or any time of logic fallacy this should flag the comment
+    #if there misspelling or any kind of logic fallacy this should flag the comment
+    #Flagging the comment will allow a them to manually checked for time guess. 
     flag = ""
     if any(char.isdigit() for char in commentText) and len(hours)==0 and len(minutes)==0 and len(seconds)==0:
         flag = 'Flag'
@@ -168,18 +168,16 @@ def generate_csv():
         thewriter = csv.writer(csvfile)
 
         for comment in comment_list:
-            counter = comment[0]
-            author = comment[1]
-            hour = comment[2]
-            min = comment[3]
-            sec = comment[4]
-            text = comment[5]
-            flag = comment[6]
+            author = comment[0]
+            hour = comment[1]
+            min = comment[2]
+            sec = comment[3]
+            text = comment[4]
+            flag = comment[5]
             thewriter.writerow([author, hour, min, sec, text, flag])
 
 get_video_comments(youtube, video_id)
 generate_csv()
-# testText = 'hrs'
-# getHoursMinSec(testText)
+
 
 
